@@ -22,3 +22,17 @@ function Invertir(yeyo) {
 
 console.log(Invertir("YEYO555"));
 console.log(Invertir("Yeyo123"));
+//Input
+const readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+//Aqui como podria generar un cuestionario? intente meter If (answer) pero no :P
+rl.question('What is your name? ', (answer) => {
+  console.log(`Welcome back: ${answer}`);
+
+  rl.close();
+
+});
+
