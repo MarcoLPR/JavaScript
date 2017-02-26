@@ -1,0 +1,33 @@
+// Function que utiliza callback
+function dothing(question, response) {
+    console.log(question);
+    response('bye'); // esto es un callback
+}
+
+// para llamarla, puedes usar arrow function
+dothing('hola', (val) => {
+  console.log(val);
+});
+
+// anonymous function
+dothing('hola', function(val){
+  console.log(val);
+});
+
+// named function
+function pepe(val){
+  console.log(val);
+}
+
+dothing('hola', pepe);
+
+// anonymous function at var
+var pepe = function(val){
+  console.log(val);
+}
+
+dothing('hola', pepe);
+
+var tonto = "TONTO"
+var x = "HOLA " + tonto;
+var x = `HOLA ${tonto}`;
