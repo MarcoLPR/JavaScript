@@ -2,7 +2,7 @@
   "name": "marco",
   "version": "1.0.0",
   "description": "Training",
-  "main": "index.js",
+  "main": "yeyo.js",
   "scripts": {
     "test": "exports.printMsg = function () {"
   },
