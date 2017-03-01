@@ -1,23 +1,24 @@
 {
-    "name": "marco",
-    "version": "1.0.0",
-    "description": "Training",
-    "main": "index.js",
-    "scripts": {},
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/MarcoLPR/JavaScript-coding.git"
-    },
-    "keywords": [
-        "Test"
-    ],
-    "author": "Leo",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/MarcoLPR/JavaScript-coding/issues"
-    },
-    "homepage": "https://github.com/MarcoLPR/JavaScript-coding#readme",
-    "dependencies": {
-        "chalk": "^1.1.3"
-    }
+  "name": "marco",
+  "version": "1.0.0",
+  "description": "Training",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcoLPR/JavaScript-coding.git"
+  },
+  "keywords": [
+    "Test"
+  ],
+  "author": "Leo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarcoLPR/JavaScript-coding/issues"
+  },
+  "homepage": "https://github.com/MarcoLPR/JavaScript-coding#readme",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "node-menu": "^1.3.0"
+  }
 }
