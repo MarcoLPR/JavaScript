@@ -29,7 +29,7 @@ console.log ('done');
 })}
 menu.addItem(
   "Read",
-   function(read) {
+   function() {
      fs.readFile('./user.json', 'utf8', function (err,data) {
           if (err) {
             return console.log(err);
