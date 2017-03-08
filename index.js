@@ -39,6 +39,3 @@ menu.addItem(
 })
 menu.addDelimiter('*', 40),
 menu.start();
-
-menu.addDelimiter('*', 40),
-menu.start();
