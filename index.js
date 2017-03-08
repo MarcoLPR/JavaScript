@@ -2,35 +2,33 @@ var chalk = require('chalk');
 var reversal = require("./reversal");
 var fs = require('fs');
 var menu = require('node-menu');
-var askLast = 'What is your lastname?';
+var user = new Object();
+var TestObject = function() {
+    var self = this;
+    self.name = 'Name ';
+}
+
+TestObject.prototype.printName = function(arg) {
+    console.log(this.name + arg);
+}
+
+var testObject = new TestObject();
 menu.disableDefaultHeader();
 menu.addDelimiter('-', 40, 'Main Menu'),
 menu.addItem(
-      'Write userfile',
-       function question1(askName, firstName) {
-        var askName = 'What is your name?';
-        console.log(askName), firstName;
-         var firstName = firstName;
-          function question2(askLast, lastName) {
-            var askLast = 'What is your lastname?';
-            console.log(askLast), lastName;
-            var lastName = lastName;
-              var user = new Object();
-               user.firstName = firstName;
-               user.lastName = lastName;
-                   var myString = JSON.stringify(user);
-                   fs.writeFile('./user.json', myString, function(err){
-           if (err) return console.error(err);
-             console.log ('done')
-           },
-null,
-[
-  {'name': 'firstName', 'type': "string"},
-  {'name': 'lastName', 'type': "string"}
-]);
-}})
+  'Write',
+    testObject.printName,
+    testObject,
+    [{'name': 'Name ', 'type': 'string'}])
+    function saveChanges() {
+      user.name = Name;
+      var myString = JSON.stringify(user);
+      fs.writeFile('./user.json', myString, function(err){
+if (err) return console.error(err);
+console.log ('done');
+})}
 menu.addItem(
-  "Read userfile",
+  "Read",
    function(read) {
      fs.readFile('./user.json', 'utf8', function (err,data) {
           if (err) {
@@ -39,5 +37,8 @@ menu.addItem(
             console.log(data);
 })
 })
+menu.addDelimiter('*', 40),
+menu.start();
+
 menu.addDelimiter('*', 40),
 menu.start();
