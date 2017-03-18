@@ -29,7 +29,22 @@ function readHandler() {
     console.log(data);
   });
 }
-
+ function sumNumbers(x, y) {
+   var result = (x + y);
+   console.log(result);
+ };
+ function minusNumbers(x, y) {
+   var result = (x - y);
+   console.log(result);
+ };
+ function multiplicateNumbers(x, y) {
+   var result = (x * y);
+   console.log(result);
+ };
+ function divideNumbers(x, y) {
+   var result = (x / y);
+   console.log(result);
+ };
 // Start menu
 menu.disableDefaultHeader();
 menu.addDelimiter('-', 40, 'Main Menu'),
@@ -49,6 +64,38 @@ menu.addItem(
   'Read',        // title
   readHandler   // handler
 );
+menu.addItem(
+  'Sum',
+  sumNumbers,
+  null,
+  [
+    {'name': 'x', 'type': 'numeric'},
+    {'name': 'y', 'type': 'numeric'}
+  ]);
+menu.addItem(
+  'Minus',
+  minusNumbers,
+  null,
+  [
+   {'name': 'x', 'type': 'numeric'},
+   {'name': 'y', 'type': 'numeric'}
+ ]);
+menu.addItem(
+  'Multiplication',
+  multiplicateNumbers,
+  null,
+ [
+   {'name': 'x', 'type': 'numeric'},
+   {'name': 'y', 'type': 'numeric'}
+ ]);
+menu.addItem(
+  'Divide',
+  divideNumbers,
+  null,
+ [
+   {'name': 'x', 'type': 'numeric'},
+   {'name': 'y', 'type': 'numeric'}
+ ]);
 
 menu.addDelimiter('*', 40),
 menu.start();
