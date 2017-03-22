@@ -4,6 +4,11 @@ var reversal = require("./reversal");
 var fs = require('fs');
 var menu = require('node-menu');
 
+var number =
+ [
+    {'name': 'x', 'type': 'numeric'},
+    {'name': 'y', 'type': 'numeric'}
+  ];
 // Write handler to use with menu
 function writeHandler(firstname, lastName) {
   // Create object, you don't need anything else. https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer
@@ -29,11 +34,11 @@ function readHandler() {
     console.log(data);
   });
 }
-function reverseInput(input) {
+function reverseInput(meow) {
   var input = {
     Input: input
   };
-  console.log(reversal())
+  console.log(reversal(meow))
  };
  function sumNumbers(x, y) {
    var result = (x + y);
@@ -87,34 +92,26 @@ menu.addItem(
   (chalk.red('Sum')),
   sumNumbers,
   null,
-  [
-    {'name': 'x', 'type': 'numeric'},
-    {'name': 'y', 'type': 'numeric'}
-  ]);
+  number
+);
 menu.addItem(
   (chalk.blue('Minus')),
   minusNumbers,
   null,
-  [
-   {'name': 'x', 'type': 'numeric'},
-   {'name': 'y', 'type': 'numeric'}
- ]);
+  number
+);
 menu.addItem(
   (chalk.green('Multiplication')),
   multiplicateNumbers,
   null,
- [
-   {'name': 'x', 'type': 'numeric'},
-   {'name': 'y', 'type': 'numeric'}
- ]);
+  number
+);
 menu.addItem(
   (chalk.yellow('Divide')),
   divideNumbers,
   null,
- [
-   {'name': 'x', 'type': 'numeric'},
-   {'name': 'y', 'type': 'numeric'}
- ]);
+  number
+);
 
 menu.addDelimiter('*', 40),
 menu.start();
