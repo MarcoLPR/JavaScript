@@ -29,29 +29,35 @@ function readHandler() {
     console.log(data);
   });
 }
+function reverseInput(input) {
+  var input = {
+    Input: input
+  };
+  console.log(reversal())
+ };
  function sumNumbers(x, y) {
    var result = (x + y);
-   console.log(result);
+   console.log( chalk.red(result));
  };
  function minusNumbers(x, y) {
    var result = (x - y);
-   console.log(result);
+   console.log( chalk.blue(result));
  };
  function multiplicateNumbers(x, y) {
    var result = (x * y);
-   console.log(result);
+   console.log( chalk.green(result));
  };
  function divideNumbers(x, y) {
    var result = (x / y);
-   console.log(result);
+   console.log( chalk.yellow (result));
  };
 // Start menu
 menu.disableDefaultHeader();
-menu.addDelimiter('-', 40, 'Main Menu'),
+menu.addDelimiter('-', 40, 'User'),
 
 // addItem API (title, handler, owner, args)
 menu.addItem(
-  'Write',        // title
+  (chalk.underline.red('Write')),        // title
   writeHandler,   // handler
   null,           // owner (we don't need this parameter so null it's enough)
   [               // args
@@ -61,11 +67,24 @@ menu.addItem(
 
 // if you have to pass null in arguments (owner and args) you can omit it.
 menu.addItem(
-  'Read',        // title
+  (chalk.underline.blue('Read')),        // title
   readHandler   // handler
 );
 menu.addItem(
-  'Sum',
+  (chalk.underline.green('Reverse')),
+  reverseInput,
+  null,
+  [
+    {'name': 'Input', 'type': 'string'}
+  ]);
+
+menu.addDelimiter('*', 40),
+
+menu.disableDefaultHeader();
+menu.addDelimiter('-', 40, 'Calculator'),
+
+menu.addItem(
+  (chalk.red('Sum')),
   sumNumbers,
   null,
   [
@@ -73,7 +92,7 @@ menu.addItem(
     {'name': 'y', 'type': 'numeric'}
   ]);
 menu.addItem(
-  'Minus',
+  (chalk.blue('Minus')),
   minusNumbers,
   null,
   [
@@ -81,7 +100,7 @@ menu.addItem(
    {'name': 'y', 'type': 'numeric'}
  ]);
 menu.addItem(
-  'Multiplication',
+  (chalk.green('Multiplication')),
   multiplicateNumbers,
   null,
  [
@@ -89,7 +108,7 @@ menu.addItem(
    {'name': 'y', 'type': 'numeric'}
  ]);
 menu.addItem(
-  'Divide',
+  (chalk.yellow('Divide')),
   divideNumbers,
   null,
  [
