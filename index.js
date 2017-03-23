@@ -3,6 +3,7 @@ var chalk = require('chalk');
 var reversal = require("./reversal");
 var fs = require('fs');
 var menu = require('node-menu');
+var calculator = require("./calculator");
 
 var number =
  [
@@ -40,22 +41,6 @@ function reverseInput(meow) {
   };
   console.log(reversal(meow))
  };
- function sumNumbers(x, y) {
-   var result = (x + y);
-   console.log( chalk.red(result));
- };
- function minusNumbers(x, y) {
-   var result = (x - y);
-   console.log( chalk.blue(result));
- };
- function multiplicateNumbers(x, y) {
-   var result = (x * y);
-   console.log( chalk.green(result));
- };
- function divideNumbers(x, y) {
-   var result = (x / y);
-   console.log( chalk.yellow (result));
- };
 // Start menu
 menu.disableDefaultHeader();
 menu.addDelimiter('-', 40, 'User'),
@@ -90,25 +75,25 @@ menu.addDelimiter('-', 40, 'Calculator'),
 
 menu.addItem(
   (chalk.red('Sum')),
-  sumNumbers,
+  calculator.sumNumbers,
   null,
   number
 );
 menu.addItem(
   (chalk.blue('Minus')),
-  minusNumbers,
+  calculator.minusNumbers,
   null,
   number
 );
 menu.addItem(
   (chalk.green('Multiplication')),
-  multiplicateNumbers,
+  calculator.multiplicateNumbers,
   null,
   number
 );
 menu.addItem(
   (chalk.yellow('Divide')),
-  divideNumbers,
+  calculator.divideNumbers,
   null,
   number
 );
