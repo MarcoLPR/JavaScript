@@ -1,18 +1,21 @@
 var http = require('http');
 var options = {
 host: 'ip-api.com',
-path: '/json/?fields=country,countrycode,region,regionName,city,zip,lat,lon,timezone'
+path: '/json/?fields=country,countryCode,region,regionName,city,zip,lat,lon,timezone'
 };
-module.exports = function (locate) {
+module.exports = {
+ locate: function() {
+   callback = function(response) {
+    var str = '';
 
- callback = function(response) {
-  var str = '';
-    str += chunk;
-  });
-  response.on('end', function () {
-    console.log(str);
-  });
+    response.on('data', function (chunk) {
+      str += chunk;
+    });
 
-http.request(options, callback).end();
-}
-};
+    response.on('end', function () {
+      console.log(str);
+    });
+  }
+
+  http.request(options, callback).end();
+}};
