@@ -47,7 +47,7 @@ menu.addDelimiter('-', 40, 'User'),
 
 // addItem API (title, handler, owner, args)
 menu.addItem(
-  (chalk.underline.red('Write')),        // title
+  chalk.underline.red('Write'),        // title
   writeHandler,   // handler
   null,           // owner (we don't need this parameter so null it's enough)
   [               // args
@@ -57,11 +57,11 @@ menu.addItem(
 
 // if you have to pass null in arguments (owner and args) you can omit it.
 menu.addItem(
-  (chalk.underline.blue('Read')),        // title
+  chalk.underline.blue('Read'),        // title
   readHandler   // handler
 );
 menu.addItem(
-  (chalk.underline.green('Reverse')),
+  chalk.underline.green('Reverse'),
   reverseInput,
   null,
   [
@@ -74,25 +74,25 @@ menu.disableDefaultHeader();
 menu.addDelimiter('-', 40, 'Calculator'),
 
 menu.addItem(
-  (chalk.red('Sum')),
+  chalk.red('Sum'),
   calculator.sumNumbers,
   null,
   number
 );
 menu.addItem(
-  (chalk.blue('Minus')),
+  chalk.blue('Minus'),
   calculator.minusNumbers,
   null,
   number
 );
 menu.addItem(
-  (chalk.green('Multiplication')),
+  chalk.green('Multiplication'),
   calculator.multiplicateNumbers,
   null,
   number
 );
 menu.addItem(
-  (chalk.yellow('Divide')),
+  chalk.yellow('Divide'),
   calculator.divideNumbers,
   null,
   number
