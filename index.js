@@ -4,6 +4,7 @@ var reversal = require("./reversal");
 var fs = require('fs');
 var menu = require('node-menu');
 var calculator = require("./calculator");
+var geolocation = require("./geolocation");
 
 var number =
  [
@@ -36,11 +37,9 @@ function readHandler() {
   });
 }
 function reverseInput(meow) {
-  var input = {
-    Input: input
-  };
   console.log(reversal(meow))
  };
+
 // Start menu
 menu.disableDefaultHeader();
 menu.addDelimiter('-', 40, 'User'),
@@ -96,6 +95,13 @@ menu.addItem(
   calculator.divideNumbers,
   null,
   number
+);
+menu.disableDefaultHeader();
+menu.addDelimiter('-', 40, 'Location'),
+
+menu.addItem(
+  chalk.green('Geolocation'),
+  geolocation.locate
 );
 
 menu.addDelimiter('*', 40),
