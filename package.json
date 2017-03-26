@@ -1,5 +1,5 @@
 {
-  "name": "marco",
+  "name": "JavaScript",
   "version": "1.0.0",
   "description": "Training",
   "main": "index.js",
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/MarcoLPR/JavaScript-coding#readme",
   "dependencies": {
     "chalk": "^1.1.3",
+    "express": "^4.15.2",
     "node-menu": "^1.3.0"
   }
 }
