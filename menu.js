@@ -101,8 +101,11 @@ menu.addDelimiter('-', 40, 'Location'),
 
 menu.addItem(
   chalk.green('Geolocation'),
-  geolocation.locate
-);
+  geolocation.locate,
+  null,
+  [
+    {'name':'ip', 'type': 'string'}
+  ]);
 
 menu.addDelimiter('*', 40),
 menu.start();
