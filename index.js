@@ -9,20 +9,42 @@ path: '/json/'
 app.get('/yeyo', function (req, res) {
   res.send('Hello World!')
 })
-app.get('/sum', function (req, res) {
-  var x = '';
+app.get('/sum', function (req, res){
+  var x = req.param('x');
   x = parseInt(x);
-  x = req.params;
-  var y = '';
+  var y = req.param('y');
   y = parseInt(y);
-  y = req.params;
+  var result = [x + y];
+  res.send(result);
+});
+app.get('/minus', function (req, res){
+  var x = req.param('x');
+  x = parseInt(x);
+  var y = req.param('y');
+  y = parseInt(y);
+  var result = [x - y];
+  res.send(result);
+});
+app.get('/multiply', function (req, res){
+  var x = req.param('x');
+  x = parseInt(x);
+  var y = req.param('y');
+  y = parseInt(y);
+  var result = [x * y];
+  res.send(result);
+});
+app.get('/divide', function (req, res){
+  var x = req.param('x');
+  x = parseInt(x);
+  var y = req.param('y');
+  y = parseInt(y);
+  var result = [x / y];
+  res.send(result);
+});
 
-  function sumNumbers(x, y) {
-  var sum = (x + y);
-  res.send(sum);
-}})
-// /sum/numer0/numer1
 app.get('/location', function(req, res) {
+    var ip = req.param('IP');
+    options.path = options.path + ip;
     callback = function(response) {
      var str = '';
      response.on('data', function (chunk) {
@@ -39,3 +61,4 @@ app.get('/location', function(req, res) {
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')
 })
+
