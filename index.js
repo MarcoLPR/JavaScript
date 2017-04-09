@@ -1,15 +1,10 @@
 var express = require('express')
 var http = require('http');
 var app = express();
-var options = {
-host: 'ip-api.com',
-path: '/json/'
-};
-
 app.get('/yeyo', function (req, res) {
   res.send('Hello World!')
 })
-app.get('/sum', function (req, res){
+app.get('/sum/:x/:y', function (req, res){
   var x = req.param('x');
   x = parseInt(x);
   var y = req.param('y');
@@ -17,7 +12,7 @@ app.get('/sum', function (req, res){
   var result = [x + y];
   res.send(result);
 });
-app.get('/minus', function (req, res){
+app.get('/minus/:x/:y', function (req, res){
   var x = req.param('x');
   x = parseInt(x);
   var y = req.param('y');
@@ -25,7 +20,7 @@ app.get('/minus', function (req, res){
   var result = [x - y];
   res.send(result);
 });
-app.get('/multiply', function (req, res){
+app.get('/multiply/:x/:y', function (req, res){
   var x = req.param('x');
   x = parseInt(x);
   var y = req.param('y');
@@ -33,7 +28,7 @@ app.get('/multiply', function (req, res){
   var result = [x * y];
   res.send(result);
 });
-app.get('/divide', function (req, res){
+app.get('/divide/:x/:y', function (req, res){
   var x = req.param('x');
   x = parseInt(x);
   var y = req.param('y');
@@ -41,8 +36,11 @@ app.get('/divide', function (req, res){
   var result = [x / y];
   res.send(result);
 });
-
-app.get('/location', function(req, res) {
+app.get('/location/:IP', function(req, res) {
+  var options = {
+  host: 'ip-api.com',
+  path: '/json/'
+  }
     var ip = req.param('IP');
     options.path = options.path + ip;
     callback = function(response) {
