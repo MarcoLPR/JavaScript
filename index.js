@@ -1,7 +1,12 @@
 var express = require('express')
 var http = require('http');
 var app = express();
-app.get('/yeyo', function (req, res) {
+var path = require('path');
+
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname + '/index.html'));
+});
+app.get('/', function (req, res) {
   res.send('Hello World!')
 })
 app.get('/sum/:x/:y', function (req, res){
