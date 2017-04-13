@@ -1,21 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<script src="jquery-3.2.1.min.js"></script>
-</head>
-<body>
-  <script>
-$(document).ready(function(){
-    $("button").click(function() {
-      var ipAPI = 'ip-api.com';
-      $.getJSON( ipAPI, {
-        path: '/json/'
-})
-    .done(function( data ) {
-});
-</script>
-  <input id="input1" type="text">
-  <input id="input2" type="text">
-  <button type="button">Check my location</button>
-</body>
-</html>    		
+  <head>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script type= "text/javascript" src="jquery.js"></script>
+  </head>
+  <body>
+    <form name="currentIP">
+      <label>Type your IP:</label>
+        <input type="text" name="ip"/>
+      <input type="button" value="Check this IP" onClick="getLocation()"/>
+    </form>
+    <div id="ip"></div>
+  </body>
+</html>

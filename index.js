@@ -46,7 +46,7 @@ app.get('/location/:IP', function(req, res) {
   host: 'ip-api.com',
   path: '/json/'
   }
-    var ip = req.param('IP');
+    var ip = req.param(IP);
     options.path = options.path + ip;
     callback = function(response) {
      var str = '';
