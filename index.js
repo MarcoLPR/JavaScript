@@ -3,12 +3,11 @@ var http = require('http');
 var app = express();
 var path = require('path');
 
+app.use("/", express.static(__dirname));
+
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
-app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
 app.get('/sum/:x/:y', function (req, res){
   var x = req.param('x');
   x = parseInt(x);
@@ -46,7 +45,7 @@ app.get('/location/:IP', function(req, res) {
   host: 'ip-api.com',
   path: '/json/'
   }
-    var ip = req.param(IP);
+    var ip = req.param('IP');
     options.path = options.path + ip;
     callback = function(response) {
      var str = '';
