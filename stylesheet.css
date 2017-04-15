@@ -1,0 +1,35 @@
+body {
+	background-image: url("http://wallpapercave.com/wp/QKgBmix.jpg");
+	background-repeat: no-repeat;
+	background-size: 1366px 1024px;
+    background-position: right top;
+    background-attachment: fixed;
+}
+
+h2 {
+	font-family: Verdana;
+	font-weight: bold;
+	text-align: center;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	color: #acd1b2;
+}
+#header {
+	position: relative;
+	top: -10px;
+	background-color: #3c4543;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+form {
+    position: relative;
+    text-align: center;
+    font-family: Verdana;
+}
+#consultedIP {
+    position: relative;
+    background-color: #ab2
+}
+#label1 {
+    color: #acd1b2
+}
