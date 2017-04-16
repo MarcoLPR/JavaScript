@@ -21,6 +21,31 @@ h2 {
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
 }
+#dashboard {
+	position: relative;
+	background-color: white;
+	height: 20px;
+	border-radius: 10px;
+}
+#calculatordiv {
+	position: relative;
+	background-color: red;
+	height: 20px;
+	width: 20%;
+	border-radius: 5px;
+	display:inline-block;
+	text-align: center;
+	
+}
+#locationdiv {
+	position: relative;
+	background-color: blue;
+	height: 20px;
+	width: 20%;
+	border-radius: 5px;
+	display:inline-block;
+	text-align: center;
+}
 form {
     position: relative;
     text-align: center;
@@ -32,4 +57,7 @@ form {
 }
 #label1 {
     color: #acd1b2
+}
+a {
+	color:black;
 }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Calculator</title>
+    <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script type= "text/javascript" src="webcalculator.js"></script>
+  </head>
+  <body>
+    <div id="header">
+      <h2>Calculator</h2>
+        <form name="values">
+         <label id='labelc1'>First Value:</label>
+          <input class="value1" type="number"/>
+         <label id='op'>Operation:</label>
+          <select id="operation">
+            <option value="sum">Sum x+y</option>
+            <option value="minus">Minus x-y</option>
+            <option value="multiply">Multiplication x*y</option>
+            <option value="divide">Division x/y</option>
+          </select>
+         <label id='labelc2'>Second Value:</label>
+          <input class="value2" type="number"/>
+        <input type="button" class="button" value="Calculate"/>
+    </form>
+    <div id="total">Total</div>
+    </div>
+    <img src="https://img.clipartfest.com/9c5b5aab6af7c5fcd97f1ea35f4eb399_cat-png-image-free-download-kitten-clipart-png_900-900.png" style="width: 400px; height: 400px;">
+  </body>
+</html>
