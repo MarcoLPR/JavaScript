@@ -2,11 +2,16 @@ var express = require('express')
 var http = require('http');
 var app = express();
 var path = require('path');
+const sqliteJSON = require('sqlite-json');
+const exporter = sqliteJSON('./slaves.db');
 
 app.use("/", express.static(__dirname));
 
 app.get('/slave/:id', function(req, res) {
-    var id = req.param('id')
+    var id = req.param('id');
+    exporter.json('SELECT info FROM contacts WHERE rowid = id', function (err, json) {
+    res.send(json);
+});
 });
 app.get('/sum/:x/:y', function (req, res){
   var x = req.param('x');

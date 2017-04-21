@@ -1,7 +1,5 @@
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('./slaves.db');
-const sqliteJSON = require('sqlite-json');
-const exporter = sqliteJSON('./slaves.db');
 
 db.serialize(function() {
   db.run("CREATE TABLE IF NOT EXISTS contacts (name TEXT, number NUMBER, email TEXT, city TEXT)");
@@ -13,5 +11,3 @@ db.serialize(function() {
   db.all("SELECT name + ',' + number + ',' + email + ',' + city AS info FROM contacts");
 });
 db.close();
-exporter.save('contacts', 'contacts.json', function (err, json) {
-});
