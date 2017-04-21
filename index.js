@@ -5,8 +5,8 @@ var path = require('path');
 
 app.use("/", express.static(__dirname));
 
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/index.html'));
+app.get('/slave/:id', function(req, res) {
+    var id = req.param('id')
 });
 app.get('/sum/:x/:y', function (req, res){
   var x = req.param('x');
