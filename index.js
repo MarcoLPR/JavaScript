@@ -9,8 +9,12 @@ app.use("/", express.static(__dirname));
 
 app.get('/slave/:id', function(req, res) {
     var id = req.param('id');
-    exporter.json('SELECT info FROM contacts WHERE rowid = id', function (err, json) {
-    res.send(json);
+    exporter.json('SELECT * FROM contacts WHERE RowId =' + id, function (err, json) {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send(json);
+    }
 });
 });
 app.get('/sum/:x/:y', function (req, res){

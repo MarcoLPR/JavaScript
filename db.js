@@ -8,6 +8,5 @@ db.serialize(function() {
   db.run("INSERT INTO contacts(name, number, email, city) VALUES ('Luis', '3314143156', 'luis@gmail.com', 'Tlaquepaque')");
   db.run("INSERT INTO contacts(name, number, email, city) VALUES ('Pepe', '3310003156', 'pepe@gmail.com', 'Tonala')");
   db.run("INSERT INTO contacts(name, number, email, city) VALUES ('Chuy', '3314132156', 'chuy@gmail.com', 'GDL')");
-  db.all("SELECT name + ',' + number + ',' + email + ',' + city AS info FROM contacts");
 });
 db.close();
