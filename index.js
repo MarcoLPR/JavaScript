@@ -9,10 +9,13 @@ app.use("/", express.static(__dirname));
 
 app.get('/slave/:id', function(req, res) {
     var id = req.param('id');
+    var notExist = ("id not found")
     exporter.json('SELECT * FROM contacts WHERE RowId =' + id, function (err, json) {
     if (err) {
       res.send(err);
-    } else {
+    } else if (json.length === 2) {
+      res.send(notExist);
+    } else{
       res.send(json);
     }
 });
