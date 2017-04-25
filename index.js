@@ -34,8 +34,20 @@ app.post('/slave', bodyParser, function(req, res) {
   db.run("INSERT INTO contacts(name, number, email, city) VALUES ('" + name +"', '"+ number +"', '" + email +"', '" + city + "')");
 });
 db.close();
-
   res.status(200).send("Contact added succesfully");
+});
+app.delete('/slave/:id', function(req, res) {
+    var id = req.param('id');
+    var success = ("The operation has been done successfully");
+    db.serialize(function() {
+    db.all('DELETE FROM contacts WHERE RowId =' + id, function (err, json) {
+          if (err) {
+      res.send(err);
+      } else{
+      res.send(success);
+    }
+})
+})
 });
 app.get('/sum/:x/:y', function (req, res){
   var x = req.param('x');
