@@ -1,9 +1,13 @@
 var express = require('express')
+var sqlite3 = require('sqlite3').verbose();
 var http = require('http');
+var bodyParser = require('body-parser')
+bodyParser = require('body-parser').json();
 var app = express();
 var path = require('path');
 const sqliteJSON = require('sqlite-json');
 const exporter = sqliteJSON('./slaves.db');
+var db = new sqlite3.Database('./slaves.db')
 
 app.use("/", express.static(__dirname));
 
@@ -19,6 +23,19 @@ app.get('/slave/:id', function(req, res) {
       res.send(json);
     }
 });
+});
+app.post('/slave', bodyParser, function(req, res) {
+  console.log(req.body);
+  var name = req.body.name;
+  var number = req.body.number;
+  var email = req.body.email;
+  var city = req.body.city;
+  db.serialize(function() {
+  db.run("INSERT INTO contacts(name, number, email, city) VALUES ('" + name +"', '"+ number +"', '" + email +"', '" + city + "')");
+});
+db.close();
+
+  res.status(200).send("Contact added succesfully");
 });
 app.get('/sum/:x/:y', function (req, res){
   var x = req.param('x');
