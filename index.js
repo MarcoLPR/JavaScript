@@ -25,7 +25,6 @@ app.get('/slave/:id', function(req, res) {
 });
 });
 app.post('/slave', bodyParser, function(req, res) {
-  console.log(req.body);
   var name = req.body.name;
   var number = req.body.number;
   var email = req.body.email;
@@ -38,9 +37,9 @@ db.close();
 });
 app.delete('/slave/:id', function(req, res) {
     var id = req.param('id');
-    var success = ("The operation has been done successfully");
+    var success = "The operation has been done successfully";
     db.serialize(function() {
-    db.all('DELETE FROM contacts WHERE RowId =' + id, function (err, json) {
+    db.run('DELETE FROM contacts WHERE RowId =' + id, function (err, json) {
           if (err) {
       res.send(err);
       } else{
@@ -49,6 +48,21 @@ app.delete('/slave/:id', function(req, res) {
 })
 })
 });
+app.put('/slave/:id', bodyParser, function(req, res) {
+  var id = req.param('id');
+  var column = req.body.column;
+  var value = req.body.value;
+  var success = "The operation has been done successfully";
+  db.serialize(function() {
+    db.run("UPDATE contacts SET'" + column + "' = '" + value + "' WHERE RowId =" + id, function(err,json) {
+      if (err) {
+        res.send(err);
+       } else {
+         res.send(success);
+       }
+    })
+    })
+  });
 app.get('/sum/:x/:y', function (req, res){
   var x = req.param('x');
   x = parseInt(x);
