@@ -50,11 +50,16 @@ app.delete('/slave/:id', function(req, res) {
 });
 app.put('/slave/:id', bodyParser, function(req, res) {
   var id = req.param('id');
-  var column = req.body.column;
-  var value = req.body.value;
+  var name = req.body.name;
+  var number = req.body.number;
+  var email = req.body.email;
+  var city = req.body.city;
   var success = "The operation has been done successfully";
   db.serialize(function() {
-    db.run("UPDATE contacts SET'" + column + "' = '" + value + "' WHERE RowId =" + id, function(err,json) {
+    db.run("UPDATE contacts SET name = '" + name + "' WHERE RowId =" + id)
+    db.run("UPDATE contacts SET number = '" + number + "' WHERE RowId =" + id)
+    db.run("UPDATE contacts SET email = '" + email + "' WHERE RowId =" + id)
+    db.run("UPDATE contacts SET city = '" + city + "' WHERE RowId =" + id, function(err,json) {
       if (err) {
         res.send(err);
        } else {
