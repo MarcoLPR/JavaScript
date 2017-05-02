@@ -56,10 +56,7 @@ app.put('/slave/:id', bodyParser, function(req, res) {
   var city = req.body.city;
   var success = "The operation has been done successfully";
   db.serialize(function() {
-    db.run("UPDATE contacts SET name = '" + name + "' WHERE RowId =" + id)
-    db.run("UPDATE contacts SET number = '" + number + "' WHERE RowId =" + id)
-    db.run("UPDATE contacts SET email = '" + email + "' WHERE RowId =" + id)
-    db.run("UPDATE contacts SET city = '" + city + "' WHERE RowId =" + id, function(err,json) {
+    db.run("UPDATE contacts SET name = '" + name + "', number = '" + number + "', email = '" + email + "', city = '" + city + "' WHERE RowId =" + id, function(err,json) {
       if (err) {
         res.send(err);
        } else {
