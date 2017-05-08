@@ -37,6 +37,16 @@ h2 {
 	text-align: center;
 	
 }
+#dbdiv {
+	position: relative;
+	background-color: green;
+	height: 20px;
+	width: 20%;
+	border-radius: 5px;
+	display:inline-block;
+	text-align: center;
+	
+}
 #locationdiv {
 	position: relative;
 	background-color: blue;
@@ -61,3 +71,6 @@ form {
 a {
 	color:black;
 }
+#consultedSlave {
+    position: relative;
+    background-color: white;

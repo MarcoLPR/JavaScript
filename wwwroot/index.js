@@ -9,7 +9,7 @@ const sqliteJSON = require('sqlite-json');
 const exporter = sqliteJSON('./slaves.db');
 var db = new sqlite3.Database('./slaves.db')
 
-app.use("/wwwroot", express.static(__dirname));
+app.use("/", express.static(__dirname));
 
 app.get('/slave/:id', function(req, res) {
     var id = req.param('id');
