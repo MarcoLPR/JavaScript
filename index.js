@@ -7,7 +7,8 @@ var app = express();
 var path = require('path');
 const sqliteJSON = require('sqlite-json');
 const exporter = sqliteJSON('./slaves.db');
-var db = new sqlite3.Database('./slaves.db')
+var db = new sqlite3.Database('./slaves.db');
+
 
 app.use("/", express.static('wwwroot'));
 
@@ -15,13 +16,7 @@ app.get('/slave/:id', function(req, res) {
     var id = req.param('id');
     var notExist = ("id not found")
     exporter.json('SELECT * FROM contacts WHERE RowId =' + id, function (err, json) {
-    if (err) {
-      res.send(err);
-    } else if (json.length === 2) {
-      res.send(notExist);
-    } else{
-      res.send(json);
-    }
+  res.send(json);
 });
 });
 
