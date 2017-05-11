@@ -1,6 +1,6 @@
 
 $(document).ready(function() {
-  $('.button1').click(function () {
+  $('#GET').click(function () {
   var $slaveID = $('.input1').val();
   var slave = "/slave/";
   $.getJSON( slave + $slaveID, function(data) {
@@ -13,7 +13,7 @@ $(document).ready(function() {
     $('.email').val(data[0].email);
   }
 })});
- $('.button2').click(function () {
+ $('#POST').click(function () {
    var name = $('.name').val();
    var number = $('.number').val();
    var city = $('.city').val();
@@ -33,7 +33,7 @@ $(document).ready(function() {
     alert("Received")
 }});
 });
-$('.button3').click(function () {
+$('#PUT').click(function () {
   var row = $('.input1').val();
   var name = $('.name').val();
   var number = $('.number').val();
@@ -54,7 +54,7 @@ $('.button3').click(function () {
     alert("Received")
 }})})
 });
-$('.button4').click(function () {
+$('#DELETE').click(function () {
   var row = $('.input1').val();
   $.ajax({
   url: "/slave/" + row,
