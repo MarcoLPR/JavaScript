@@ -57,7 +57,7 @@ $('.button3').click(function () {
 $('.button4').click(function () {
   var row = $('.input1').val();
   $.ajax({
-  url: "/slave" + row,
+  url: "/slave/" + row,
   type: 'DELETE',
   success: function(response,status) {
   alert("Received")
