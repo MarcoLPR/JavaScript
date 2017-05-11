@@ -1,5 +1,6 @@
 
 $(document).ready(function() {
+  //GET
   $('#GET').click(function () {
   var $slaveID = $('.input1').val();
   var slave = "/slave/";
@@ -13,6 +14,7 @@ $(document).ready(function() {
     $('.email').val(data[0].email);
   }
 })});
+//POST
  $('#POST').click(function () {
    var name = $('.name').val();
    var number = $('.number').val();
@@ -33,6 +35,7 @@ $(document).ready(function() {
     alert("Received")
 }});
 });
+//PUT
 $('#PUT').click(function () {
   var row = $('.input1').val();
   var name = $('.name').val();
@@ -46,14 +49,14 @@ $('#PUT').click(function () {
      "email": email
    }
   $.ajax({
-  url: "/slave" + row,
-  type: 'put',
+  url: "/slave/" + row,
+  type: 'PUT',
   data: change,
   contentType: 'application/json',
   success: function(response,status) {
     alert("Received")
 }})})
-});
+//DELETE
 $('#DELETE').click(function () {
   var row = $('.input1').val();
   $.ajax({
@@ -61,4 +64,5 @@ $('#DELETE').click(function () {
   type: 'DELETE',
   success: function(response,status) {
   alert("Received")
-  }})});
+}})});
+});
