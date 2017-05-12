@@ -48,6 +48,7 @@ $('#PUT').click(function () {
      "city": city,
      "email": email
    }
+   var change = JSON.stringify(change);
   $.ajax({
   url: "/slave/" + row,
   type: 'PUT',
