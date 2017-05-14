@@ -14,12 +14,15 @@ app.use("/", express.static('wwwroot'));
 
 app.get('/slave/:id', function(req, res) {
     var id = req.param('id');
-    var notExist = ("id not found")
     exporter.json('SELECT * FROM contacts WHERE RowId =' + id, function (err, json) {
   res.send(json);
 });
 });
-
+app.get('/slave', function(req,res) {
+  exporter.json('SELECT RowId, name, number, email, city FROM contacts', function (err, json) {
+  res.send(json);
+});
+});
 app.post('/slave', bodyParser, function(req, res) {
   var name = req.body.name;
   var number = req.body.number;

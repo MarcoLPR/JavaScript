@@ -1,4 +1,4 @@
- {
+{
   "name": "JavaScript",
   "version": "1.0.0",
   "description": "Training",
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/MarcoLPR/JavaScript-coding#readme",
   "dependencies": {
     "body-parser": "^1.17.1",
+    "bootstrap": "^3.3.7",
     "chalk": "^1.1.3",
     "express": "^4.15.2",
     "node-menu": "^1.3.0",
