@@ -1,12 +1,12 @@
 $(document).ready(function() {
-  $('.button').click(function () {
+  $('#calculate').click(function () {
   var $operation = $('#operation option:selected').val();
   var $firstValue = $('.value1').val();
   var $secondValue = $('.value2').val();
   var $result = $('#total');
   $.getJSON($operation + '/' + $firstValue + '/' + $secondValue, function(data) {
-    var myString = JSON.stringify(data);
-    $result.text(myString);
+    var result = data[0];
+    $result.text(result);
   })
   })
 });

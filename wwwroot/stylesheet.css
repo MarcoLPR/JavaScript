@@ -1,3 +1,5 @@
+/*Global*/
+
 body {
 	background-image: url("http://wallpapercave.com/wp/CyT83yY.jpg");
 	background-repeat: no-repeat;
@@ -10,70 +12,104 @@ img {
     height: auto;
     width: auto\9;
 }
-h2 {
+h1 {
 	font-family: Verdana;
 	font-weight: bold;
 	text-align: center;
 	padding-top: 25px;
 	padding-bottom: 25px;
-	color: #acd1b2;
+	color: black;
+}
+#slide {
+	max-width: 500px;
+	max-height: 500px;
+	margin-left:auto; 
+    margin-right:auto;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+#divSlide {
+	background-color: white;
+	width: 50%;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	margin-left:auto; 
+    margin-right:auto;
 }
 #header {
 	position: relative;
-	top: -10px;
-	background-color: #3c4543;
+	top: 0px;
+	background-color: white;
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
-}
-#dashboard {
-	position: relative;
-	background-color: white;
-	height: 20px;
-	border-radius: 10px;
-}
-#calculatordiv {
-	position: relative;
-	background-color: red;
-	height: 20px;
-	width: 20%;
-	border-radius: 5px;
-	display:inline-block;
-	text-align: center;
-	
-}
-#dbdiv {
-	position: relative;
-	background-color: green;
-	height: 20px;
-	width: 20%;
-	border-radius: 5px;
-	display:inline-block;
-	text-align: center;
-	
-}
-#locationdiv {
-	position: relative;
-	background-color: blue;
-	height: 20px;
-	width: 20%;
-	border-radius: 5px;
-	display:inline-block;
-	text-align: center;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
 }
 form {
     position: relative;
     text-align: center;
     font-family: Verdana;
 }
+.center {
+    margin-left:auto; 
+    margin-right:auto;
+	text-align: center;
+}
+#navbar {
+	background-color: white;
+}
+div {
+	border-color:black;
+	border-width: medium;
+}
+a {
+	color:black;
+}
+
+/* Location */
+
 #consultedIP {
     position: relative;
     background-color: #ab2
 }
-#label1 {
-    color: #acd1b2
+
+#ip {
+	background-color: white;
+	width: 90%;
+	top: 70px;
+	position: relative;
+	font-size: 12px;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
 }
-a {
-	color:black;
+
+/* Calculator */
+
+#total {
+	background-color: white;
+	width: 40%;
+	top: 70px;
+	position: relative;
+	font-size: 40px;
+	font-weight: bold;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+
+}
+
+/*Database*/
+
+#label1 {
+    color: black;
+	font-size: 16px;
 }
 #consultedSlave {
     position: relative;
@@ -83,7 +119,3 @@ a {
 	position: relative;
 	background-color: white;
 }
-  table.center {
-    margin-left:auto; 
-    margin-right:auto;
-  }

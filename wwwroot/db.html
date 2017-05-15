@@ -1,50 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Database</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
-    <script src="jquery-3.2.1.min.js"></script>
-    <script type= "text/javascript" src="webdb.js"></script>
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
   </head>
   <body>
+  <div id="navbar">
+	<ul class="nav nav-tabs">
+        <li><a href="/"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
+        <li><a href="/location.html">Location</a></li>
+        <li><a href="/calculator.html">Calculator</a></li>
+        <li class="active"><a href="/db.html">Database</a></li>
+    </ul>
+</div>
     <div id="header">
-      <h2>Database</h2>
-        <form name="Database">
-         <label id='label1'>Slave no.</label>
-          <input class="input1" type="text"/>
-        <input type="button" id="GET" value="Check this slave"/>
-        <input type="button" id="DELETE" value="Delete this slave"/>
-    </form>
-    <form id="consultedSlave">Slave info
-        <br>
-        <label>Name</label>
-        <input type="text" name="name" class="name"/>
-        <label>Number</label>
-        <input type="text" name="number" class="number"/>
-        <label>Email</label>
-        <input type="text" name="email" class="email"/>
-        <label>City</label>
-        <input type="text" name="city" class="city"/>
-        <input type="button" id="POST" value="Add this slave"/>
-        <input type="button" id="PUT" value="Update this slave"/>
-    </form>
+      <h1>Database</h1>
     </div>
-    <table id="tableSlave" class="center">
+    <div class= "panel panel-default">
+      <div class= "panel-heading center">
+      <label id='label1'>Slave no.</label>
+        <input class="input1" type="text"/>
+          <button type="button" id="GET" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-check"></span> Check</button>
+          <button type="button" id="DELETE" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-minus"></span> Delete</button>
+    </div>
+    <div class="panel-body">
+    <div id="form">
+    <form id="consultedSlave" class="form-inline">
+      <br>
+      <div class="form-group">
+        <label class="sr-only" for="name">Name</label>
+        <input type="text" id="name" class="name form-control" placeholder="Name"/>
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="number">Phone Number</label>
+        <input type="text" id="number" class="number form-control" placeholder="Phone Number"/>
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="email">Email</label>
+        <input type="text" id="email" class="email form-control" placeholder="Email"/>
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="city">City</label>
+        <input type="text" id="city" class="city form-control" placeholder="City"/>
+      </div>
+        <button type="button" id="POST" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-plus"></span> Add</button>
+        <button type="button" id="PUT" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+    </form>
+    <br>
+    </div>
+    </div>
+    </div>
+    <div class="table-responsive">
+    <table id="tableSlave" class="table table-hover table-bordered table-striped table-condensed">
       <thead>
         <tr style="border-bottom:1px solid black;">
-          <th style="padding:5px;" colspan="5">All my slaves</th>
-          <th><input type="button" id="refresh" value="Refresh"/></th>
+          <th style="padding:5px;" class="center" colspan="5">Database</th>
+          <th><button type="button" id="refresh" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-refresh"></span> Refresh</button></th>
         </tr>
         <tr style="border-bottom:1px solid black;">
           <th style="padding:5px;">Name</th>
           <th style="padding:5px;">Number</th>
           <th style="padding:5px;">Email</th>
           <th style="padding:5px;">City</th>
+          <th style="padding:5px;" colspan="2">Functions</th>
         </tr>
       </thead>
       <tbody>
       </tbody>
     </table>
-    <img src="https://img.clipartfest.com/9c5b5aab6af7c5fcd97f1ea35f4eb399_cat-png-image-free-download-kitten-clipart-png_900-900.png" style="width: 400px; height: 400px;">
+    </div>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script type= "text/javascript" src="webdb.js"></script>
   </body>
 </html>
