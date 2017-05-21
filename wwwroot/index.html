@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Toolbox</title>
@@ -17,8 +18,11 @@
         <li><a href="/db.html">Database</a></li>
       </ul>
     </div>
+    <div>
+    <input type="button" class="btn btn-lg btn-primary toggle-modal" value="Login">
+    </div>
     <div class="center" id="header">
-      <h1>Toolbox<br><small>Anything you need in one place</small></h1>
+      <h1>Toolbox<br><small>Everything you need in one place</small></h1>
     </div>
     <div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
     <div class="carousel-inner center">
@@ -44,5 +48,28 @@
 </div>
     <script src="jquery-3.2.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script type= "text/javascript" src="weblogin.js"></script>
+        <div id="myModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Login</h4>
+          </div>
+          <div class="modal-body center">
+            <label><b>Username: </b></label>
+            <input type="text" placeholder="Enter Username" name="uname" id="username" required>
+            <br>
+            <label><b>Password: </b></label>
+            <input type="password" placeholder="Enter Password" name="psw" id="password" required>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="close-modal">Close</button>
+            <button type="button" class="btn btn-default" id="register-form">Register</button>
+            <button type="button" class="btn btn-primary" id="login-form">Login</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -9,4 +9,7 @@ db.serialize(function() {
   db.run("INSERT INTO contacts(name, number, email, city) VALUES ('Pepe', '3310003156', 'pepe@gmail.com', 'Tonala')");
   db.run("INSERT INTO contacts(name, number, email, city) VALUES ('Chuy', '3314132156', 'chuy@gmail.com', 'GDL')");
 });
+db.serialize(function() {
+  db.run("CREATE TABLE IF NOT EXISTS login (username TEXT, password TEXT)");
+})
 db.close();
