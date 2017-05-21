@@ -34,7 +34,6 @@ app.post('/slave', bodyParser, function(req, res) {
   db.serialize(function() {
   db.run("INSERT INTO contacts(name, number, email, city) VALUES ('" + name +"', '"+ number +"', '" + email +"', '" + city + "')");
 });
-db.close();
   res.status(200).send("Contact added succesfully");
 });
 
@@ -81,8 +80,7 @@ app.post('/register', bodyParser, function(req, res) {
   db.serialize(function() {
   db.run("INSERT INTO login(username, password) VALUES ('" + username +"', '"+ password +"')");
 });
-db.close();
-  res.status(200).send("Contact added succesfully");
+  res.status(200).send("User registered");
 });
 // Calculator
 app.get('/sum/:x/:y', function (req, res){
