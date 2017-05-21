@@ -12,6 +12,8 @@ var db = new sqlite3.Database('./slaves.db');
 
 app.use("/", express.static('wwwroot'));
 
+//Slave Table AJAX
+
 app.get('/slave/:id', function(req, res) {
     var id = req.param('id');
     exporter.json('SELECT * FROM contacts WHERE RowId =' + id, function (err, json) {
@@ -23,6 +25,7 @@ app.get('/slave', function(req,res) {
   res.send(json);
 });
 });
+
 app.post('/slave', bodyParser, function(req, res) {
   var name = req.body.name;
   var number = req.body.number;
@@ -66,7 +69,22 @@ app.put('/slave/:id', bodyParser, function(req, res) {
     })
   })
 });
-
+// Login Table
+app.get('/login', function(req,res) {
+  exporter.json('SELECT username, password FROM login', function (err, json) {
+  res.send(json);
+});
+});
+app.post('/register', bodyParser, function(req, res) {
+  var username = req.body.username;
+  var password = req.body.password;
+  db.serialize(function() {
+  db.run("INSERT INTO login(username, password) VALUES ('" + username +"', '"+ password +"')");
+});
+db.close();
+  res.status(200).send("Contact added succesfully");
+});
+// Calculator
 app.get('/sum/:x/:y', function (req, res){
   var x = req.param('x');
   x = parseInt(x);
@@ -103,6 +121,7 @@ app.get('/divide/:x/:y', function (req, res){
   res.send(result);
 });
 
+//Location
 app.get('/location/:IP', function(req, res) {
   var options = {
   host: 'ip-api.com',
