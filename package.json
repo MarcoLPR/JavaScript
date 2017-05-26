@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Training",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "node node_modules/karma/bin/karma start karma.conf.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MarcoLPR/JavaScript-coding.git"
