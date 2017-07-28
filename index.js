@@ -4,6 +4,12 @@ var http = require('http');
 var bodyParser = require('body-parser')
 bodyParser = require('body-parser').json();
 var app = express();
+var knex = require('knex')({
+  client: 'sqlite3',
+  connection: {
+    filename: "./slaves.db"
+  }
+});
 var path = require('path');
 const sqliteJSON = require('sqlite-json');
 const exporter = sqliteJSON('./slaves.db');
@@ -13,43 +19,36 @@ var db = new sqlite3.Database('./slaves.db');
 app.use("/", express.static('wwwroot'));
 
 //Slave Table AJAX
-
 app.get('/slave/:id', function(req, res) {
     var id = req.param('id');
-    exporter.json('SELECT * FROM contacts WHERE RowId =' + id, function (err, json) {
+    knex('contacts').where('id', id), function (err, json) {
   res.send(json);
-});
-});
+}});
 app.get('/slave', function(req,res) {
-  exporter.json('SELECT RowId, name, number, email, city FROM contacts', function (err, json) {
+  knex.select().from('contacts'), function (err, json) {
   res.send(json);
-});
-});
+}});
 
 app.post('/slave', bodyParser, function(req, res) {
   var name = req.body.name;
   var number = req.body.number;
   var email = req.body.email;
   var city = req.body.city;
-  db.serialize(function() {
-  db.run("INSERT INTO contacts(name, number, email, city) VALUES ('" + name +"', '"+ number +"', '" + email +"', '" + city + "')");
-});
+  knex('contacts').insert({name: name}, {number: number}, {email: email}, {city: city})
   res.status(200).send("Contact added succesfully");
 });
+
 
 app.delete('/slave/:id', function(req, res) {
     var id = req.param('id');
     var success = "The operation has been done successfully";
-    db.serialize(function() {
-    db.run('DELETE FROM contacts WHERE RowId =' + id, function (err, json) {
+    knex('contacts').where('id', id).del(), function (err, json){
           if (err) {
       res.send(err);
       } else{
       res.send(success);
     }
-})
-})
-});
+}});
 
 app.put('/slave/:id', bodyParser, function(req, res) {
   var id = req.param('id');
@@ -58,16 +57,14 @@ app.put('/slave/:id', bodyParser, function(req, res) {
   var email = req.body.email;
   var city = req.body.city;
   var success = "The operation has been done successfully";
-  db.serialize(function() {
-    db.run("UPDATE contacts SET name = '" + name + "', number = '" + number + "', email = '" + email + "', city = '" + city + "' WHERE RowId =" + id, function(err,json) {
-      if (err) {
-        res.send(err);
-       } else {
-         res.send(success);
-       }
-    })
-  })
-});
+  knex('contacts').where('id', id).update({name: name}, {number: number}, {email: email}, {city: city}), function (err, json){
+    if (err) {
+      res.send(err);
+     } else {
+        res.send(success);
+}
+}});
+
 // Login Table
 app.get('/login', function(req,res) {
   exporter.json('SELECT username, password FROM login', function (err, json) {
