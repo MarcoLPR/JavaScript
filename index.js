@@ -11,8 +11,6 @@ var knex = require('knex')({
   }
 });
 var path = require('path');
-const sqliteJSON = require('sqlite-json');
-const exporter = sqliteJSON('./slaves.db');
 var db = new sqlite3.Database('./slaves.db');
 
 
@@ -21,10 +19,10 @@ app.use("/", express.static('wwwroot'));
 //Slave Table AJAX
 app.get('/slave/:id', function(req, res) {
     var id = req.param('id');
-    knex('contacts').where('id', id), function (err, json) {
-  res.send(json);
-}});
-app.get('/slave', function(req,res) {
+    knex.select().from('contacts').where('id', id).then(function(){
+     res.json();
+})});
+app.get('/slave', function(req,res){
   knex.select().from('contacts'), function (err, json) {
   res.send(json);
 }});
@@ -57,13 +55,10 @@ app.put('/slave/:id', bodyParser, function(req, res) {
   var email = req.body.email;
   var city = req.body.city;
   var success = "The operation has been done successfully";
-  knex('contacts').where('id', id).update({name: name}, {number: number}, {email: email}, {city: city}), function (err, json){
-    if (err) {
-      res.send(err);
-     } else {
-        res.send(success);
-}
-}});
+  knex('contacts').where('id', id).insert({name: name}, {number: number}, {email: email}, {city: city}).then(function(){
+    console.log(name)
+  })
+});
 
 // Login Table
 app.get('/login', function(req,res) {
