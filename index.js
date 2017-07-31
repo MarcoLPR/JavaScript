@@ -17,36 +17,35 @@ var db = new sqlite3.Database('./slaves.db');
 app.use("/", express.static('wwwroot'));
 
 //Slave Table AJAX
-app.get('/slave/:id', function(req, res) {
+app.get('/slave/:id', function(req, res, next) {
     var id = req.param('id');
-    knex.select().from('contacts').where('id', id).then(function(){
-     res.json();
-})});
+    knex.select().from('contacts').where('RowId', id)
+    .then(function(data){
+      res.json(data);})
+});
 app.get('/slave', function(req,res){
-  knex.select().from('contacts'), function (err, json) {
-  res.send(json);
-}});
+  knex.select().from('contacts').then(function(data){
+  res.json(data);
+})});
 
 app.post('/slave', bodyParser, function(req, res) {
   var name = req.body.name;
   var number = req.body.number;
   var email = req.body.email;
   var city = req.body.city;
-  knex('contacts').insert({name: name}, {number: number}, {email: email}, {city: city})
-  res.status(200).send("Contact added succesfully");
+  knex.insert([{name: name, number: number, email: email, city: city}]).into('contacts').then(function(data){
+    res.send("Contact added succesfully")
+  })
 });
 
 
 app.delete('/slave/:id', function(req, res) {
     var id = req.param('id');
     var success = "The operation has been done successfully";
-    knex('contacts').where('id', id).del(), function (err, json){
-          if (err) {
-      res.send(err);
-      } else{
-      res.send(success);
-    }
-}});
+    knex('contacts').where('RowId', id).del().then(function(data){
+      res.send(success)
+    })
+});
 
 app.put('/slave/:id', bodyParser, function(req, res) {
   var id = req.param('id');
@@ -55,8 +54,9 @@ app.put('/slave/:id', bodyParser, function(req, res) {
   var email = req.body.email;
   var city = req.body.city;
   var success = "The operation has been done successfully";
-  knex('contacts').where('id', id).insert({name: name}, {number: number}, {email: email}, {city: city}).then(function(){
-    console.log(name)
+  knex('contacts').where('RowId', id).update({name: name, number: number, email: email, city: city})
+    .then(function(data){
+    res.send(success)
   })
 });
 
