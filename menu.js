@@ -3,8 +3,8 @@ var chalk = require('chalk');
 var reversal = require("./reversal");
 var fs = require('fs');
 var menu = require('node-menu');
-var calculator = require("./calculator");
-var geolocation = require("./geolocation");
+var calculator = require("./menucalculator");
+var geolocation = require("./menugeolocation");
 
 var number =
  [
