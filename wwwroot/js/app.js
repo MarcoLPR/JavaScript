@@ -10,7 +10,7 @@
             templateUrl: "user.html",
             controller: "UserController"
         })
-        .when("/database", {
+        .when("/db", {
             templateUrl: "db.html",
             controller: "DBController"
         })

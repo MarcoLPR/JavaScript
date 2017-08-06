@@ -1,22 +1,14 @@
 <div id="header">
   <h1>Calculator</h1>
-  <form name="values" class="form-inline">
-    <div class="form-group">
-      <label class="sr-only" for="firstValue">First Value</label>
-      <input type="number" id="firstValue" class="value1 form-control" placeholder="First Value" />
-    </div>
-    <div class="form-group" <label id='op'>Operation:</label>
-      <select id="operation">
-            <option value="sum">Plus</option>
-            <option value="minus">Minus</option>
-            <option value="multiply">Multiplication</option>
-            <option value="divide">Division</option>
+  <form name="values" class="form-inline" ng-submit="calculate()">
+    <input type="number" required placeholder="First Value" ng-model="a" />
+    <select ng-model="op">
+            <option value="+">Plus +</option>
+            <option value="-">Minus -</option>
+            <option value="*">Multiplication *</option>
+            <option value="/">Division /</option>
           </select>
-      <div class="form-group">
-        <label class="sr-only" for="secondValue">Second Value</label>
-        <input type="number" id="secondValue" class="value2 form-control" placeholder="Second Value" />
-      </div>
-      <input type="button" id="calculate" value="Calculate"></input>
+      <input type="number" required placeholder="Second Value" ng-model="b" />
   </form>
-  </div>
-  <div id="total" class="center">Total</div>
+</div>
+<div id="total" ng-show="calculate()" class="center">{{ calculate() }}</div>

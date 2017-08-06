@@ -3,33 +3,32 @@
 </div>
 <div class="panel panel-default">
   <div class="panel-heading center">
-    <label id='label1'>Slave no.</label>
-    <input class="input1" type="text" />
-    <button type="button" id="GET" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-check"></span> Check</button>
-    <button type="button" id="DELETE" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-minus"></span> Delete</button>
+    <label>Slave no.</label>
+    <input ng-model="id1" required type="text"/>
+    <button type="button" ng-click="getSelected()" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-check"></span> Check</button>
+    <button type="button" ng-click="del()" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-minus"></span> Delete</button>
   </div>
   <div class="panel-body">
     <div id="form">
-      <form id="consultedSlave" class="form-inline">
+      <form class="form-inline">
         <br>
         <div class="form-group">
-          <label class="sr-only" for="name">Name</label>
-          <input type="text" id="name" class="name form-control" placeholder="Name" />
+          <label>Name</label>
+          <input type="text" class="form-control" placeholder="Name"/>{{ slave.name }}
+        <div class="form-group">
+          <label>Number</label>
+          <input type="text" class="form-control" placeholder="Number"/>{{ slave.number }}
         </div>
         <div class="form-group">
-          <label class="sr-only" for="number">Phone Number</label>
-          <input type="text" id="number" class="number form-control" placeholder="Phone Number" />
+          <label>City</label>
+          <input type="text" class="form-control" placeholder="City"/>{{ slave.city }}
         </div>
         <div class="form-group">
-          <label class="sr-only" for="email">Email</label>
-          <input type="text" id="email" class="email form-control" placeholder="Email" />
+          <label>Email</label>
+          <input type="text" class="form-control" placeholder="Email"/>{{ slave.email }}
         </div>
-        <div class="form-group">
-          <label class="sr-only" for="city">City</label>
-          <input type="text" id="city" class="city form-control" placeholder="City" />
-        </div>
-        <button type="button" id="POST" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-plus"></span> Add</button>
-        <button type="button" id="PUT" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+        <button type="button" ng-click="post()" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-plus"></span> Add</button>
+        <button type="button" ng-click="put()" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
       </form>
       <br>
     </div>
@@ -54,8 +53,3 @@
     </tbody>
   </table>
 </div>
-<script src="jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="webdb.js"></script>
-</body>
-
-</html>
