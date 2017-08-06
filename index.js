@@ -1,4 +1,5 @@
 var express = require('express')
+var bodyParser = require('body-parser');
 var sqlite3 = require('sqlite3').verbose();
 var http = require('http');
 var app = express();
@@ -11,17 +12,16 @@ var knex = require('knex')({
 var path = require('path');
 var db = new sqlite3.Database('./slaves.db');
 
+app.use(bodyParser.json());
 app.use("/", express.static('wwwroot'));
 
 //Slave Table AJAX
 app.get('/slave/:id', function (req, res) {
-  var id = req.param('id');
-  async function getUser() {
-  return await knex.select().from('contacts').where('RowId', id);}
-  (async function(){
-  var data = await getUser();
-  res.send(data)
-})()});
+  var id = req.param('id'); // TODO: Change to req.
+  // TODO: Check how to use await knex
+  knex.select().from('contacts').where('id', id).first()
+    .then(data => res.send(data));
+});
 app.get('/slave', function (req, res) {
   knex.select().from('contacts')
     .then(function (data) {
@@ -29,23 +29,14 @@ app.get('/slave', function (req, res) {
     })
 });
 app.post('/slave', function (req, res) {
-  var name = req.param('name');
-  var number = req.param('number');
-  var email = req.param('email');
-  var city = req.param('city');
-  knex.insert([{ name: name, number: number, email: email, city: city }]).into('contacts').then(function (data) {
+  knex.insert(req.body).into('contacts').then(function (data) {
     res.send("Contact added succesfully")
   })
 });
 app.delete('/slave/:id', function (req, res) {
   var id = req.param('id');
-  var success = "The operation has been done successfully";
-  async function deleteUser() {
-  return await knex('contacts').where('RowId', id).del();}
-  (async function(){
-  var data = await deleteUser();
-  res.send(data)
-  })
+  knex('contacts').where('id', id).del()
+  .then(res.send("Ok"))
 });
 app.put('/slave/:id', function (req, res) {
   var id = req.param('id');
@@ -54,7 +45,7 @@ app.put('/slave/:id', function (req, res) {
   var email = req.param('email');
   var city = req.param('city');
   var success = "The operation has been done successfully";
-  knex('contacts').where('RowId', id).update({ name: name, number: number, email: email, city: city })
+  knex('contacts').where('id', id).update(req.body)
     .then(function (data) {
       res.send(success)
     })

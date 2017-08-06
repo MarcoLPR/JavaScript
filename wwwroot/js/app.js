@@ -8,11 +8,13 @@
         })
         .when("/user/:username", {
             templateUrl: "user.html",
-            controller: "UserController"
+            controller: "UserController",
+            controllerAs: "ctrl"
         })
         .when("/db", {
             templateUrl: "db.html",
-            controller: "DBController"
+            controller: "DBController",
+            controllerAs: "ctrl"
         })
         .when("/calculator", {
             templateUrl: "calculator.html",
@@ -21,6 +23,11 @@
         .when("/location", {
             templateUrl: "location.html",
             controller: "LocationController"
+        })
+        .when("/repo/:username/:reponame", {
+            templateUrl: "repo.html",
+            controller: "RepoController",
+            controllerAs: "ctrl"
         })
         .otherwise({redirectTo:"/"});
     });
