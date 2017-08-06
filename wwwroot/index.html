@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html ng-app="githubViewer" lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -14,11 +14,11 @@
 <body>
   <div id="navbar">
     <ul class="nav nav-tabs">
-      <li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
-      <li><a href="/location.html">Location</a></li>
-      <li><a href="/calculator.html">Calculator</a></li>
-      <li><a href="/db.html">Database</a></li>
-      <li><a href="/playground.html">Playground</a></li>
+      <li><a href="/"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
+      <li><a href="#/location.html">Location</a></li>
+      <li><a href="#/calculator.html">Calculator</a></li>
+      <li><a href="#/db.html">Database</a></li>
+      <li><a href="#/github">Github</a></li>
     </ul>
   </div>
   <div>
@@ -27,7 +27,8 @@
   <div class="center" id="header">
     <h1>Toolbox<br><small>Everything you need in one place</small></h1>
   </div>
-  <div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
+  <div ng-view=""></div>
+ <!-- <div nghide="hide" id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
     <div class="carousel-inner center">
       <div class="item active">
         <a href="/location.html">
@@ -51,11 +52,16 @@
           <a class="carousel-control right" href="#myCarousel" data-slide="next">
         <span class="glyphicon glyphicon-chevron-right"></span>
     </a>
-      </div>
+      </div> -->
       <script src="jquery-3.2.1.min.js"></script>
       <script src="js/bootstrap.min.js"></script>
       <script type="text/javascript" src="weblogin.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+      <script type"text/javascript" src="js/app.js"></script>
+      <script type"text/javascript" src="js/GithubController.js"></script>
+      <script type"text/javascript" src="js/UserController.js"></script>
+      <script type"text/javascript" src="js/github.js"></script>
       <div id="myModal" class="modal fade">
         <div class="modal-dialog">
           <div class="modal-content">
