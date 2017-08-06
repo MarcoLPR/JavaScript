@@ -1,6 +1,6 @@
 (function() {
 
-var app = angular.module("githubViewer", []);
+var app = angular.module("githubViewer");
 var GithubController = function($scope, $interval, $location) {
     var decrementCountdown = function() {
         $scope.countdown -= 1;
@@ -13,14 +13,11 @@ var GithubController = function($scope, $interval, $location) {
         countdownInterval = $interval(decrementCountdown, 1000, $scope.countdown);
     };
     $scope.search = function(username){
-        $log.info("Searching for" + username);
-        github.getUser(username)
-            .then(onUserComplete, onError);
         if(countdownInterval) {
             $interval.cancel(countdownInterval);
             $scope.countdown = null;
         }
-        $location.path("user/" + username);
+        $location.path("/user/" + username);
     };
     $scope.username = "MarcoLPR"
     $scope.countdown = 5;

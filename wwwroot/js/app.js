@@ -7,8 +7,20 @@
             controller: "GithubController"
         })
         .when("/user/:username", {
-            templateUrl: "/user.html",
+            templateUrl: "user.html",
             controller: "UserController"
+        })
+        .when("/database", {
+            templateUrl: "db.html",
+            controller: "DBController"
+        })
+        .when("/calculator", {
+            templateUrl: "calculator.html",
+            controller: "CalculatorController"
+        })
+        .when("/location", {
+            templateUrl: "location.html",
+            controller: "LocationController"
         })
         .otherwise({redirectTo:"/"});
     });

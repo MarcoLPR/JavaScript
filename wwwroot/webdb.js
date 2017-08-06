@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
   //GET
   $('#GET').click(function () {

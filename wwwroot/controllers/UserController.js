@@ -1,13 +1,12 @@
 (function() {
 
-var app = angular.module("githubViewer", []);
+var app = angular.module("githubViewer");
 
 var UserController = function($scope, github, $routeParams) {
 
     var onUserComplete = function(data) {
         $scope.user = data;
-        github.getRepos($scope.user)
-            .then(onRepos, onError);
+        github.getRepos($scope.user).then(onRepos, onError);
     };
     var onRepos = function(data) {
         $scope.repos = data;
