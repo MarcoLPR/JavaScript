@@ -29,6 +29,11 @@
             controller: "RepoController",
             controllerAs: "ctrl"
         })
+        /*.when("/", {
+            templateUrl: "index.html",
+            controller: "LoginController",
+            controllerAs: "ctrl"
+        })*/
         .otherwise({redirectTo:"/"});
     });
 }());

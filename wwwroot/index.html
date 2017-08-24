@@ -28,41 +28,41 @@
     <h1>Toolbox<br><small>Everything you need in one place</small></h1>
   </div>
   <div ng-view></div>
-      <script src="jquery-3.2.1.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
-      <script type="text/javascript" src="weblogin.js"></script>
-      <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-      <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
-      <script type"text/javascript" src="js/app.js"></script>
-      <script type"text/javascript" src="services/github.js"></script>
-      <script type"text/javascript" src="controllers/GithubController.js"></script>
-      <script type"text/javascript" src="controllers/UserController.js"></script>
-      <script type"text/javascript" src="controllers/CalculatorController.js"></script>
-      <script type"text/javascript" src="controllers/LocationController.js"></script>
-      <script type"text/javascript" src="controllers/DBController.js"></script>
-      <script type"text/javascript" src="controllers/RepoController.js"></script>
-      <div id="myModal" class="modal fade">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <h4 class="modal-title">Login</h4>
-            </div>
-            <div class="modal-body center">
-              <label><b>Username: </b></label>
-              <input type="text" placeholder="Enter Username" name="uname" id="username" required>
-              <br>
-              <label><b>Password: </b></label>
-              <input type="password" placeholder="Enter Password" name="psw" id="password" required>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal" id="close-modal">Close</button>
-              <button type="button" class="btn btn-default" id="register-form">Register</button>
-              <button type="button" class="btn btn-primary" id="login-form">Login</button>
-            </div>
-          </div>
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Login</h4>
+        </div>
+        <div class="modal-body center">
+          <label><b>Username: </b></label>
+          <input type="text" placeholder="Enter Username" ng-model="ctrl.user" required>
+          <br>
+          <label><b>Password: </b></label>
+          <input type="password" placeholder="Enter Password" ng-model="ctrl.password" required>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="close-modal">Close</button>
+          <button type="button" class="btn btn-default" ng-click="ctrl.register()">Register</button>
+          <button type="button" class="btn btn-primary" ng-click="ctrl.login()">Login</button>
         </div>
       </div>
+    </div>
+  </div>
+  <script src="jquery-3.2.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="weblogin.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+  <script type "text/javascript" src="js/app.js"></script>
+  <script type "text/javascript" src="services/github.js"></script>
+  <script type "text/javascript" src="controllers/GithubController.js"></script>
+  <script type "text/javascript" src="controllers/UserController.js"></script>
+  <script type "text/javascript" src="controllers/CalculatorController.js"></script>
+  <script type "text/javascript" src="controllers/LocationController.js"></script>
+  <script type "text/javascript" src="controllers/DBController.js"></script>
+  <script type "text/javascript" src="controllers/RepoController.js"></script>
 </body>
 
 </html>

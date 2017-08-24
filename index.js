@@ -18,7 +18,6 @@ app.use("/", express.static('wwwroot'));
 //Slave Table AJAX
 app.get('/slave/:id', function (req, res) {
   var id = req.param('id'); // TODO: Change to req.
-  // TODO: Check how to use await knex
   knex.select().from('contacts').where('id', id).first()
     .then(data => res.send(data));
 });
@@ -36,14 +35,14 @@ app.post('/slave', function (req, res) {
 app.delete('/slave/:id', function (req, res) {
   var id = req.param('id');
   knex('contacts').where('id', id).del()
-  .then(res.send("Ok"))
+    .then(res.send("Ok"))
 });
 app.put('/slave/:id', function (req, res) {
   var id = req.param('id');
   var name = req.param('name');
   var number = req.param('number');
   var email = req.param('email');
-  var city = req.param('city');
+  var city = req.param('city'); //Check this
   var success = "The operation has been done successfully";
   knex('contacts').where('id', id).update(req.body)
     .then(function (data) {
@@ -53,16 +52,16 @@ app.put('/slave/:id', function (req, res) {
 // Login Table
 app.get('/login', function (req, res) {
   knex.select().from('login')
-  .then(function(data){
-    res.send(data);
-  })});
+    .then(function (data) {
+      res.send(data);
+    })
+});
 app.post('/register', function (req, res) {
-  var username = req.param('username');
-  var password = req.param('password');
-  knex.insert([{ username: username, password: password }]).into('login')
-  .then(function (data) {
-    res.send("User registered")
-  })});
+  knex.insert(req.body).into('login')
+    .then(function (data) {
+      res.send("User registered")
+    })
+});
 // Calculator
 app.get('/:op/:x/:y', function (req, res) {
   var x = req.param('x');
@@ -107,6 +106,6 @@ app.get('/location/:IP', function (req, res) {
   http.request(options, callback).end();
 });
 app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
+  console.log('Hosted in port 3000')
 })
 
