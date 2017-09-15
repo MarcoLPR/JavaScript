@@ -1,6 +1,6 @@
 (function () {
 
-    var app = angular.module("githubViewer", ["tubular"]);
+    var app = angular.module("githubViewer");
     var DBController = function ($scope, $http) {
         const ctrl = this;
         $http.get('/slave')

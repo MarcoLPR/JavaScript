@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/MarcoLPR/JavaScript-coding#readme",
   "dependencies": {
-    "angular": "^1.6.6",
     "body-parser": "^1.17.2",
     "bootstrap": "^3.3.7",
     "chalk": "^1.1.3",
