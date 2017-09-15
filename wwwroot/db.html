@@ -35,29 +35,73 @@
     </div>
   </div>
 </div>
-<div class="table-responsive">
-  <table id="tableSlave" class="table table-hover table-bordered table-striped table-condensed">
-    <thead>
-      <tr style="border-bottom:1px solid black;">
-        <th style="padding:5px;" class="center" colspan="5">Database
-          <button type="button" ng-click="ctrl.get()" id="refresh" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-refresh"></span> Refresh</button></th>
-      </tr>
-      <tr style="border-bottom:1px solid black;">
-        <th style="padding:5px;">ID</th>
-        <th style="padding:5px;">Name</th>
-        <th style="padding:5px;">Number</th>
-        <th style="padding:5px;">Email</th>
-        <th style="padding:5px;">City</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="slave in ctrl.slaves">
-        <td>{{ slave.id }}</td>
-        <td>{{ slave.name }}</td>
-        <td>{{ slave.number }}</td>
-        <td>{{ slave.email }}</td>
-        <td>{{ slave.city }}</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="container">
+  <tb-grid server-url="/slave" request-method:="GET" page-size="20" class="row" grid-name="Slaves">
+    <div class="row">
+      <tb-grid-pager class="col-md-6"></tb-grid-pager>
+      <tb-text-search class="col-md-3" css="input-sm"></tb-text-search>
+    </div>
+    <div class="col-md-12">
+      <div class="panel panel-default panel-rounded">
+        <tb-grid-table class="table-bordered">
+          <tb-column-definitions>
+            <tb-column name="Id" label="Id" column-type="numeric" sortable="true" is-key="true" searchable="false" sort-direction="Ascending"
+              sort-order "1" visible="true">
+              <tb-column-filter></tb-column-filter>
+              <tb-column-header>
+                <span>{{label}}</span>
+              </tb-column-header>
+            </tb-column>
+            <tb-column name="Name" label="Name" column-type="string" sortable="true" is-key="false" searchable="true" sort-direction=""
+              sort-order "0" visible="true">
+              <tb-column-header>
+                <span>{{label}}</span>
+              </tb-column-header>
+            </tb-column>
+            <tb-column name="Number" label="Number" column-type="numeric" sortable="true" is-key="false" searchable="true" sort-direction=""
+              sort-order "0" visible="true">
+              <tb-column-header>
+                <span>{{label}}</span>
+              </tb-column-header>
+            </tb-column>
+            <tb-column name="City" label="City" column-type="string" sortable="true" is-key="false" searchable="true" sort-direction=""
+              sort-order "0" visible="true">
+              <tb-column-header>
+                <span>{{label}}</span>
+              </tb-column-header>
+            </tb-column>
+            <tb-column name="Email" label="Email" column-type="string" sortable="true" is-key="false" searchable="true" sort-direction=""
+              sort-order "0" visible="true">
+              <tb-column-header>
+                <span>{{label}}</span>
+              </tb-column-header>
+            </tb-column>
+          </tb-column-definitions>
+          <tb-row-set>
+            <tb-row-template ng-repeat="slave in ctrl.slaves" row-model="row">
+              <tb-cell-template column-name="Id">
+                {{row.id}}
+              </tb-cell-template>
+              <tb-cell-template column-name="Name">
+                {{row.name}}
+              </tb-cell-template>
+              <tb-cell-template column-name="Number">
+                {{row.number}}
+              </tb-cell-template>
+              <tb-cell-template column-name="City">
+                {{row.city}}
+              </tb-cell-template>
+              <tb-cell-template column-name="Email">
+                {{row.email}}
+              </tb-cell-template>
+            </tb-row-template>
+          </tb-row-set>
+        </tb-grid-table>
+      </div>
+    </div>
+    <div class="row">
+      <tb-grid-pager class="col-md-6"></tb-grid-pager>
+      <tb-page-size-selector class="col-md-3" selectorcss="input-sm"></tb-page-size-selector>
+      <tb-grid-pager-info class="col-md-3"></tb-grid-pager-info>
+  </tb-grid>
 </div>
