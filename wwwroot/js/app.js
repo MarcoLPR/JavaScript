@@ -1,5 +1,5 @@
 (function(){
-    var app = angular.module("githubViewer", ["ngRoute", "tubular"]);
+    var app = angular.module("toolbox", ["ngRoute", "tubular"]);
     app.config(function($routeProvider){
         $routeProvider
         .when("/github", {

@@ -1,6 +1,6 @@
 (function() {
 
-var app = angular.module("githubViewer");
+var app = angular.module("toolbox");
 
 var RepoController = function($scope, github, $routeParams) {
     var onRepo = function(data){

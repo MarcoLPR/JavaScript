@@ -1,6 +1,6 @@
 (function () {
 
-    var app = angular.module("githubViewer");
+    var app = angular.module("toolbox");
     var LocationController = function ($scope, $http) {
         $scope.location = function(){
              $http.get("/location/" + $scope.ip)

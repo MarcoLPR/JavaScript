@@ -1,6 +1,6 @@
 (function() {
 
-var app = angular.module("githubViewer");
+var app = angular.module("toolbox");
 
 var UserController = function($scope, github, $routeParams) {
 

@@ -1,6 +1,6 @@
 (function () {
 
-    var app = angular.module("githubViewer");
+    var app = angular.module("toolbox");
     var LoginController = function ($scope, $http) {
         const ctrl = this;
         ctrl.register = function () {

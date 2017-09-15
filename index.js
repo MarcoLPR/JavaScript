@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var sqlite3 = require('sqlite3').verbose();
 var http = require('http');
 var app = express();
-var tubular = require('tubular')('knex');
+var tubular = require('tubular-nodejs')('knex');
 var knex = require('knex')({
   client: 'sqlite3',
   connection: {
@@ -33,6 +33,12 @@ app.post('/slave', function (req, res) {
     res.send("Contact added succesfully")
   })
 });
+//Create table Tubular
+app.post('/slave', function (req, res) {
+  let knexQuery = knex.select('id', 'name', 'number', 'email', 'city').from('contacts');
+  res.send(tubular.createGridResponse(req, knexQuery))
+});
+
 app.delete('/slave/:id', function (req, res) {
   var id = req.param('id');
   knex('contacts').where('id', id).del()

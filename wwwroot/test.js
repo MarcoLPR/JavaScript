@@ -5,6 +5,6 @@ describe("Should return 2", function(){
     it("Sum numbers", function() {
         var result = a + b;
 
-    expect(result).toBe(2);
+    expect(result).toBe(3);
     });
 });

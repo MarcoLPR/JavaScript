@@ -1,6 +1,6 @@
 (function() {
 
-var app = angular.module("githubViewer");
+var app = angular.module("toolbox");
 var GithubController = function($scope, $interval, $location) {
     var decrementCountdown = function() {
         $scope.countdown -= 1;

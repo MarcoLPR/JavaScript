@@ -10,12 +10,20 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine', 'jasmine-jquery'],
+    frameworks: ['jasmine', 'angular'],
 
 
     // list of files / patterns to load in the browser
     files: [
-      '*test.js'
+      'https://cdn.jsdelivr.net/npm/angular@1.6.4/angular.js',
+      "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-mocks.js",
+      'https://cdn.jsdelivr.net/npm/angular-route@1.6.4/angular-route.js',
+      'https://cdn.jsdelivr.net/npm/angular-animate@1.6.4/angular-animate.js',
+      'https://momentjs.com/downloads/moment.js',
+      'https://cdn.jsdelivr.net/npm/tubular@1.7.11',
+      'https://cdn.jsdelivr.net/g/angular.bootstrap@2.5.0(ui-bootstrap.min.js+ui-bootstrap-tpls.min.js),momentjs@2.17.1',
+      'js/app.js',
+      'controllers/*.js',
     ],
 
 
@@ -37,7 +45,7 @@ module.exports = function(config) {
 
 
     // web server port
-    port: 9876,
+    port: 3000,
 
 
     // enable / disable colors in the output (reporters and logs)

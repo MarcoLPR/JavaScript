@@ -31,6 +31,6 @@
             getRepoDetails: getRepoDetails
         };
     };
-    var module = angular.module("githubViewer");
+    var module = angular.module("toolbox");
     module.factory("github", github);
 }());

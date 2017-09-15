@@ -1,6 +1,6 @@
 (function() {
 
-var app = angular.module("githubViewer");
+var app = angular.module("toolbox");
 var CalculatorController = function($scope) {
     $scope.op = '+';
     $scope.calculate = function() {
