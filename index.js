@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var sqlite3 = require('sqlite3').verbose();
 var http = require('http');
 var app = express();
+var tubular = require('tubular')('knex');
 var knex = require('knex')({
   client: 'sqlite3',
   connection: {
