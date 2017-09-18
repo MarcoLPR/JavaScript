@@ -1,9 +1,9 @@
 (function() {
 
 var app = angular.module("toolbox");
-var CalculatorController = function($scope) {
+var CalculatorController = $scope => {
     $scope.op = '+';
-    $scope.calculate = function() {
+    $scope.calculate = () => {
       if($scope.op == '+') {
         return $scope.a + $scope.b;
       }else if($scope.op == '-') {

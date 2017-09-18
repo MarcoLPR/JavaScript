@@ -1,14 +1,14 @@
 (function () {
-    var github = function ($http) {
-        var getUser = function (username) {
+    var github = $http => {
+        var getUser = username => {
             return $http.get("https://api.github.com/users/" + username)
-                .then(function (response) {
+                .then(response => {
                     return response.data;
                 });
         };
-        var getRepos = function (user) {
+        var getRepos = user => {
             return $http.get(user.repos_url)
-                .then(function (response) {
+                .then(response => {
                     return response.data;
                 });
         };
@@ -16,11 +16,11 @@
             var repo;
             var repoUrl = "https://api.github.com/repos/" + username + "/" + reponame;
             return $http.get(repoUrl)
-                .then(function (response) {
+                .then(response => {
                     repo = response.data;
                     return $http.get(repoUrl + "/contributors");
                 })
-                .then(function(response){
+                .then(response => {
                     repo.contributors = response.data;
                     return repo;
                 })

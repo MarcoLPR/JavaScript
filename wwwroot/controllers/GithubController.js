@@ -2,17 +2,17 @@
 
 var app = angular.module("toolbox");
 var GithubController = function($scope, $interval, $location) {
-    var decrementCountdown = function() {
+    var decrementCountdown = () => {
         $scope.countdown -= 1;
         if($scope.countdown < 1){
             $scope.search($scope.username);
         };
     };
     var countdownInterval = null;
-    var startCountdown = function(){
+    var startCountdown = () => {
         countdownInterval = $interval(decrementCountdown, 1000, $scope.countdown);
     };
-    $scope.search = function(username){
+    $scope.search = username => {
         if(countdownInterval) {
             $interval.cancel(countdownInterval);
             $scope.countdown = null;

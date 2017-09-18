@@ -4,14 +4,14 @@ var app = angular.module("toolbox");
 
 var UserController = function($scope, github, $routeParams) {
 
-    var onUserComplete = function(data) {
+    var onUserComplete = data => {
         $scope.user = data;
         github.getRepos($scope.user).then(onRepos, onError);
     };
-    var onRepos = function(data) {
+    var onRepos = data => {
         $scope.repos = data;
     };
-    var onError = function(reason) {
+    var onError = reason => {
         $scope.error = "Could not fetch the data."
     };
     $scope.username = $routeParams.username;

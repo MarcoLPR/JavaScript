@@ -28,7 +28,7 @@ app.get('/slave', function (req, res) {
       res.send(data);
     })
 });
-app.post('/slave', function (req, res) {
+app.post('/slave/save', function (req, res) {
   knex.insert(req.body).into('contacts').then(function (data) {
     res.send("Contact added succesfully")
   })
@@ -36,7 +36,7 @@ app.post('/slave', function (req, res) {
 //Create table Tubular
 app.post('/slave', function (req, res) {
   let knexQuery = knex.select('id', 'name', 'number', 'email', 'city').from('contacts');
-  res.send(tubular.createGridResponse(req, knexQuery))
+  res.send(tubular.createGridResponse(req.body, knexQuery))
 });
 
 app.delete('/slave/:id', function (req, res) {

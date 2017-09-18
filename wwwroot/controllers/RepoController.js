@@ -3,10 +3,10 @@
 var app = angular.module("toolbox");
 
 var RepoController = function($scope, github, $routeParams) {
-    var onRepo = function(data){
+    var onRepo = data => {
         $scope.repo = data;
     };
-    var onError = function(reason){
+    var onError = reason => {
         $scope.error = reason;
     };
 
