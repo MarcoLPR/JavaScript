@@ -36,7 +36,8 @@
   </div>
 </div>
 <div class="container">
-  <tb-grid server-url="/slave" request-method:="GET" page-size="20" class="row" grid-name="Slaves">
+  <tb-grid server-url="/slave" request-method="POST" page-size="20" class="row" grid-name="Slaves"
+    require-authentication="false">
     <div class="row">
       <tb-grid-pager class="col-md-6"></tb-grid-pager>
       <tb-text-search class="col-md-3" css="input-sm"></tb-text-search>
