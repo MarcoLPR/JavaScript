@@ -5,8 +5,8 @@
   <div class="panel-heading center">
     <label>Slave no.</label>
     <input ng-model="ctrl.id1" required type="text" />
-    <button type="button" ng-click="db.getSelected()" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-check"></span> Check</button>
-    <button type="button" ng-click="db.deleteSlave()" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-minus"></span> Delete</button>
+    <button type="button" ng-click="ctrl.getSelected()" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-check"></span> Check</button>
+    <button type="button" ng-click="ctrl.deleteSlave()" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-minus"></span> Delete</button>
   </div>
   <div class="panel-body">
     <div id="form">
@@ -28,8 +28,8 @@
           <label>Email</label>
           <input type="text" class="form-control" placeholder="Email" ng-model="ctrl.slave.email" />
         </div>
-        <button type="button" ng-click="db.addSlave()" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-plus"></span> Add</button>
-        <button type="button" ng-click="db.updateSlave()" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+        <button type="button" ng-click="ctrl.addSlave()" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-plus"></span> Add</button>
+        <button type="button" ng-click="ctrl.updateSlave()" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
       </form>
       <br>
     </div>
