@@ -36,8 +36,13 @@
   </div>
 </div>
 <div class="container">
+<<<<<<< HEAD
   <tb-grid server-url="/slave" request-method="POST" page-size="20" class="row" grid-name="Slaves"
     require-authentication="false">
+=======
+  <tb-grid server-url="/slave" request-method="POST" page-size="20" class="row" grid-name="slaves"
+  require-authentication="false">
+>>>>>>> 3165870b67f1f2ca0e80074c0bf255bbf5b67058
     <div class="row">
       <tb-grid-pager class="col-md-6"></tb-grid-pager>
       <tb-text-search class="col-md-3" css="input-sm"></tb-text-search>
@@ -46,32 +51,44 @@
       <div class="panel panel-default panel-rounded">
         <tb-grid-table class="table-bordered">
           <tb-column-definitions>
+<<<<<<< HEAD
             <tb-column name="Id" column-type="numeric" sortable="true" is-key="true" searchable="false" sort-direction="Ascending"
+=======
+            <tb-column name="id" column-type="numeric" sortable="true" is-key="true" searchable="false" sort-direction="Ascending"
+>>>>>>> 3165870b67f1f2ca0e80074c0bf255bbf5b67058
               sort-order "1" visible="true">
-              <tb-column-filter></tb-column-filter>
               <tb-column-header>
                 <span>{{label}}</span>
               </tb-column-header>
             </tb-column>
+<<<<<<< HEAD
             <tb-column name="Name" column-type="string" sortable="true" is-key="false" searchable="true" sort-direction=""
+=======
+            <tb-column name="name" column-type="string" sortable="true" is-key="false" searchable="true" sort-direction=""
+>>>>>>> 3165870b67f1f2ca0e80074c0bf255bbf5b67058
               sort-order "0" visible="true">
               <tb-column-header>
                 <span>{{label}}</span>
               </tb-column-header>
             </tb-column>
+<<<<<<< HEAD
             <tb-column name="Number" label="Number" column-type="numeric" sortable="true" is-key="false" searchable="true" sort-direction=""
               sort-order "0">
+=======
+            <tb-column name="number" column-type="numeric" sortable="true" is-key="false" searchable="true" sort-direction=""
+              sort-order "0" visible="true">
+>>>>>>> 3165870b67f1f2ca0e80074c0bf255bbf5b67058
               <tb-column-header>
                 <span>{{label}}</span>
               </tb-column-header>
             </tb-column>
-            <tb-column name="City" label="City" column-type="string" sortable="true" is-key="false" searchable="true" sort-direction=""
+            <tb-column name="city" column-type="string" sortable="true" is-key="false" searchable="true" sort-direction=""
               sort-order "0" visible="true">
               <tb-column-header>
                 <span>{{label}}</span>
               </tb-column-header>
             </tb-column>
-            <tb-column name="Email" label="Email" column-type="string" sortable="true" is-key="false" searchable="true" sort-direction=""
+            <tb-column name="email" column-type="string" sortable="true" is-key="false" searchable="true" sort-direction=""
               sort-order "0" visible="true">
               <tb-column-header>
                 <span>{{label}}</span>
@@ -79,20 +96,25 @@
             </tb-column>
           </tb-column-definitions>
           <tb-row-set>
+<<<<<<< HEAD
             <tb-row-template ng-repeat="slave in $component.rows" row-model="row">
               <tb-cell-template column-name="Id">
+=======
+            <tb-row-template ng-repeat="row in $component.rows" row-model="row">
+              <tb-cell-template column-name="id">
+>>>>>>> 3165870b67f1f2ca0e80074c0bf255bbf5b67058
                 {{row.id}}
               </tb-cell-template>
-              <tb-cell-template column-name="Name">
+              <tb-cell-template column-name="name">
                 {{row.name}}
               </tb-cell-template>
-              <tb-cell-template column-name="Number">
+              <tb-cell-template column-name="number">
                 {{row.number}}
               </tb-cell-template>
-              <tb-cell-template column-name="City">
+              <tb-cell-template column-name="city">
                 {{row.city}}
               </tb-cell-template>
-              <tb-cell-template column-name="Email">
+              <tb-cell-template column-name="email">
                 {{row.email}}
               </tb-cell-template>
             </tb-row-template>

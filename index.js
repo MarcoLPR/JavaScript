@@ -36,7 +36,11 @@ app.post('/slave/save', function (req, res) {
 //Create table Tubular
 app.post('/slave', function (req, res) {
   let knexQuery = knex.select('id', 'name', 'number', 'email', 'city').from('contacts');
+<<<<<<< HEAD
   res.send(tubular.createGridResponse(req.body, knexQuery))
+=======
+  tubular.createGridResponse(req.body, knexQuery).then(response => res.send(response));
+>>>>>>> 3165870b67f1f2ca0e80074c0bf255bbf5b67058
 });
 
 app.delete('/slave/:id', function (req, res) {
