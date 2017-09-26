@@ -1,38 +1,36 @@
 (function () {
-    var db = $http => {
-        ctrl = this;
+    var db = function ($http) {
         var getAllUsers = () => {
-            ctrl.get('/slave').then(response => {
-                $scope.slaves = response.data;
+            return $http.get('/slave').then(response => {
+                return response.data
+            });
+        };
+
+        var getSelected = (idSlave) => {
+            return $http.get('/slave/' + idSlave).then(response => {
+                return response.data
             })
         }
-        var getSelected = () => {
-            ctrl.get('/slave/' + $scope.id1)
-                .then(response => {
-                    $scope.slave = response.data;
-                    $scope.slave.id = null
-                })
-        }
-        var addSlave = () => {
-            ctrl.post('/slave', $scope.slave)
+        var addSlave = (slave) => {
+            return $http.post('/slave/save/', slave)
                 .then(function (response, error) {
                     alert("Contact added successfully");
                 })
         }
-        var deleteSlave = () => {
-            ctrl.delete('/slave/' + $scope.id1)
+        var deleteSlave = (idSlave) => {
+            return $http.delete('/slave/' + idSlave)
                 .then(response => {
                     alert("Contact deleted successfully");
                 })
         }
-        var updateSlave = () => {
-            ctrl.put('/slave/' + $scope.id1, $scope.slave)
+        var updateSlave = (idSlave, slave) => {
+            return $http.put('/slave/' + idSlave, slave)
                 .then(response => {
                     alert("Contact modified successfully");
                 })
         }
         return {
-            getAllUser: getAllUser,
+            getAllUsers: getAllUsers,
             getSelected: getSelected,
             addSlave: addSlave,
             deleteSlave: deleteSlave,

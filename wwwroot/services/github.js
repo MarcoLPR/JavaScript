@@ -1,5 +1,5 @@
 (function () {
-    var github = $http => {
+    var github = function($http) {
         var getUser = username => {
             return $http.get("https://api.github.com/users/" + username)
                 .then(response => {

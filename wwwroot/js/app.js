@@ -1,5 +1,8 @@
 (function(){
     var app = angular.module("toolbox", ["ngRoute", "tubular"]);
+    app.run(function(tubularConfig){
+        tubularConfig.webApi.requireAuthentication(false);
+    });
     app.config(function($routeProvider){
         $routeProvider
         .when("/github", {
